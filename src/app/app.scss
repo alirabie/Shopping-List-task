@@ -1,16 +1,68 @@
-// http://ionicframework.com/docs/theming/
+$color1:#f77123;
+$color2:#51423d;
+$color3:#e4dcca;
+$color4:#ffa800;
+$color6:#ccc;
+
+@import url('https://fonts.googleapis.com/css?family=Tajawal');
+
+body,html{color:#333}
+
+body, button, page-intro-screen .btn1,.label,ion-title.title ,ion-segment-button,.toolbar-title,.tab-button-text,ion-select.select{
+    font-family: 'Tajawal', sans-serif;
+}
+ion-title.title {
+    text-align: center;
+}
+ion-title.title .toolbar-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: $color1
+    
+}
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+
+ion-navbar.toolbar .toolbar-background-md,.toolbar-background.toolbar-background-ios{background:$color2}
+
+
+body, button, page-intro-screen .btn1,.label,ion-title.title ,ion-segment-button,.toolbar-title,.tab-button-text,ion-select.select,
+.alert-head,div#alert-msg-0 {
+   font-family: 'Tajawal', sans-serif;
+}
+
+
+
+
+/*ion-navbar.toolbar ion-buttons button {color: #f77123 !important}*/
+
+.label-md-primary, .item-input .label-md-primary, .item-select .label-md-primary, .item-datetime .label-md-primary,
+.label-ios-primary, .item-input .label-ios-primary, .item-select .label-ios-primary, .item-datetime .label-ios-primary,
+.input-wrapper ion-label.label {
+    color: #888;
+}
+
+.bar-button-default, .bar-button-clear-default, .bar-button-default,
+.toolbar-primary .bar-button-clear, .toolbar-primary .bar-button-default, 
+.toolbar-primary .bar-button-outline, .toolbar-primary .toolbar-title,.toolbar-title.toolbar-title-ios,ion-navbar.toolbar span.button-inner{color: $color3; font-size:1em}
+
+.bar-button-default:hover, .bar-button-clear-default:hover, .bar-button-default:hover,
+.toolbar-primary .bar-button-clear:hover, .toolbar-primary .bar-button-default:hover, 
+.toolbar-primary .bar-button-outline:hover, .toolbar-primary .toolbar-title:hover,.toolbar-title.toolbar-title-ios:hover,ion-navbar.toolbar span.button-inner:hover{color: $color1}
+
+ion-header.header.header-ios button.back-button.disable-hover.bar-button.bar-button-ios.back-button-ios.bar-button-default.bar-button-default-ios.show-back-button{
+    color: $color3 !important;
+    font-size:0;   
+}
+
+.bar-button-default:hover:not(.disable-hover), .bar-button-clear-default:hover:not(.disable-hover), .bar-button-default:hover:not(.disable-hover) {
+    color: $color1;
+    
+}
+button.butn {
+    height: 40px;
+    font-size: 1.1em;
+}
+.statusbar{background-color: $color1 !important}
+
+

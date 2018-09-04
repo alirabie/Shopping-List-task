@@ -1,14 +1,77 @@
 <ion-header>
+
   <ion-navbar>
+    <ion-buttons (click)="loadCartPage()" start left>
+      <button ion-button icon-only>
+        <ion-icon color="light" name="md-cart"></ion-icon>
+        <ion-badge color="newColor">{{badgeCount}}</ion-badge>
+
+      </button>
+    </ion-buttons>
+
     <ion-title>
-      Ionic Blank
+      Market Products
     </ion-title>
+
+
+
   </ion-navbar>
+  <ion-row class="searchrow">
+    <ion-input placeholder="Search for product" [(ngModel)]="searchTerm"> </ion-input>
+    <button ion-button clear item-end (click)="getProductsByName(searchTerm)">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-row>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+
+  <ion-spinner class="spin" *ngIf="isBusy" name="bubbles"></ion-spinner>
+  <ion-list>
+
+    <ion-label class="emptylbl" *ngIf="empty">No Products</ion-label>
+
+    <ion-item [color]="even? 'light' : 'whiteer'" *ngFor="let product of productsList ; let even = even ; let index = index">
+      <ion-thumbnail item-start>
+        <img [src]="product.images.list[200]" />
+      </ion-thumbnail>
+
+      <div class="group">
+        <h2>{{product.name}}</h2>
+
+      </div>
+
+      <ion-row class="settingsrow">
+        <p class="settings">
+          <small class="settingsname">Price {{ counts[index] * product.prices.price | number : '1.2-2'}} $</small>
+
+        </p>
+
+        <ion-row class="counter" *ngIf = "checkProductIsAdded(product.id)">
+          <button class="btn" ion-button icon-only (click)="down(index)" style="margin-left: 5px;  margin-right: 5px;">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          {{counts[index]}}
+          <button class="btn" ion-button icon-only (click)="up(index)" style="margin-left: 5px;  margin-right: 5px;">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-row>
+
+      </ion-row>
+
+
+      <button  *ngIf = "checkProductIsAdded(product.id)" ion-button clear item-end (click)="addItem(product,counts[index])">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+      <button *ngIf="!checkProductIsAdded(product.id)" ion-button clear item-end (click)="delItem(product.id)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item>
+
+
+  </ion-list>
+
+
 </ion-content>

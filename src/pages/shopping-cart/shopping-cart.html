@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Shopping List</ion-title>
+
+    <ion-buttons (click)="sort()" start right>
+      <button ion-button icon-only>
+        <ion-icon color="light" name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list reorder="{{sortIsOn}}" (ionItemReorder)="reorderItems($event)">
+    <ion-item [color]="even? 'light' : 'whiteer'" *ngFor="let product of cartitems ; let even = even ; let index = index">
+      <ion-thumbnail item-start>
+        <img [src]="product.product.images.list[200]" />
+      </ion-thumbnail>
+
+      <div class="group">
+        <h2>{{product.product.name}}</h2>
+
+      </div>
+
+      <ion-row class="settingsrow">
+        <p class="settings">
+          <small class="settingsname">Price {{ product.count * product.product.prices.price | number : '1.2-2'}} $</small>
+
+        </p>
+
+        <ion-row class="counter">
+          <button class="btn" ion-button icon-only (click)="down(index)" style="margin-left: 5px;  margin-right: 5px;">
+            <ion-icon name="remove"></ion-icon>
+          </button>
+          {{product.count}}
+          <button class="btn" ion-button icon-only (click)="up(index)" style="margin-left: 5px;  margin-right: 5px;">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-row>
+
+      </ion-row>
+
+      <button ion-button clear item-end (click)="delItem(product.id)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-row class="allcash">
+    <p>Expected amount {{total  | number : '1.2-2'}}<small>$</small></p>
+  </ion-row>
+</ion-footer>

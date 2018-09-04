@@ -5,8 +5,7 @@ $color3:#e4dcca;
 $color4:#ffa800;
 $color6:#ccc;
 
-page-home {
-  
+page-shopping-cart {
     ion-item.item.item-block {
         padding:2px 0px;
         border-bottom: 0.5px solid $color3;
@@ -115,11 +114,21 @@ page-home {
   fill: $color1 !important;
   
 }
-
-
-
- 
 }
 
-
-
+ion-row.allcash.row{
+    background-color:#eee;
+    text-align:center;
+    margin-bottom:25px;
+    p{
+        width:100%;
+        font-size:1.3em;
+        font-weight:600;
+        margin:10px 0;
+        color:$color2
+    }
+    small{
+        font-weight:500;
+        font-size:14px
+    }
+}
